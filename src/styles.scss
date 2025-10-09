@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   /* Light Mode */
-  --background-color: #ffffff;
-  --text-color: #333333;
+  --light-mode-background: #ffffff;
+  --light-mode-text-color: #333333;
+  --light-mode-button-text-color: #e0e0e0;
+  --my-primary-color: #4caf50; /* Example custom primary color */
+  --my-secondary-color: #ffc107; /* Example custom secondary color */
+  --light-mode-my-text-color: #333333; /* Example custom text color */
+  --dark-mode-background: #121212;
+  --dark-mode-text-color: #ffffff;
+  --dark-mode-button-text-color: #e0e0e0;
   /* ... other light mode colors */
 }
 
@@ -14,9 +21,13 @@
 .dark-mode a {
   color: #bb86fc;
 }
+button {
+background-color: var(--my-primary-color);
+  color: var(--light-mode-button-text-color);
+}
 
 .dark-mode button {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  border: 1px solid #bb86fc;
+  background-color: var(--my-secondary-color);
+  color: var(--dark-mode-button-text-color);
+  border: 1px solid var(--dark-mode-border-color);
 }

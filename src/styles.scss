@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*@import 'primeng/themes/lara-light-blue/theme.css';
+@import 'primeng/themes/lara-dark-blue/theme.css';*/
+@import 'primeicons/primeicons.css';
+
 :root {
   /* Light Mode */
   --light-mode-background: #ffffff;
@@ -22,7 +27,7 @@
   color: #bb86fc;
 }
 button {
-background-color: var(--my-primary-color);
+  background-color: var(--my-primary-color);
   color: var(--light-mode-button-text-color);
 }
 

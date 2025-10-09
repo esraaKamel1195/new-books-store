@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /* Light Mode */
+  --background-color: #ffffff;
+  --text-color: #333333;
+  /* ... other light mode colors */
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode a {
+  color: #bb86fc;
+}
+
+.dark-mode button {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  border: 1px solid #bb86fc;
+}

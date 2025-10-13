@@ -44,6 +44,7 @@ export class DataViewComponent {
   }
 
   getSeverity(product: Product) {
+    
     switch (product.inventoryStatus) {
       case 'INSTOCK':
         return 'success';

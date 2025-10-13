@@ -17,7 +17,10 @@ import {
   provideTranslateLoader,
 } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { provideHttpClient } from '@angular/common/http';
+
+// http client interceptor
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { jwtInterceptor } from '@core/interceptors/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -30,12 +33,13 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura,
         options: {
-            darkModeSelector: '.my-app-dark'
-        }
+          darkModeSelector: '.my-app-dark',
+        },
       },
     }),
     // translate service
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
+    /*provideHttpClient(withInterceptors([jwtInterceptor])),*/
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: './i18n/',

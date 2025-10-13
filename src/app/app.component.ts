@@ -1,4 +1,11 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
@@ -10,7 +17,7 @@ import {
   TranslatePipe,
   TranslateDirective,
 } from '@ngx-translate/core';
-import { DataViewComponent } from "@shared/components/data-view-components/data-view/data-view.component";
+import { DataViewComponent } from '@shared/components/data-view-components/data-view/data-view.component';
 
 @Component({
   selector: 'app-root',
@@ -22,14 +29,23 @@ import { DataViewComponent } from "@shared/components/data-view-components/data-
     FormsModule,
     TranslatePipe,
     TranslateDirective,
-    DataViewComponent
-],
+    DataViewComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   value = '';
   title = 'new-books-store';
+  showCount = signal(false);
+  count = signal(0);
+  conditionalCount = computed(() => {
+    if (this.showCount()) {
+      return `The count in conditional countted is from computed ${this.count()}.`;
+    } else {
+      return 'Nothing to see here!';
+    }
+  });
 
   private readonly translate = inject(TranslateService);
 
@@ -37,6 +53,29 @@ export class AppComponent {
     this.translate.addLangs(['ar', 'en']);
     this.translate.setFallbackLang('en');
     this.translate.use('en');
+
+    console.log('AppComponent initialized 2');
+
+    effect(() => {
+      console.log('AppComponent initialized 3 from effect');
+      console.log(`The current count is: ${this.count()}`);
+    });
+  }
+
+  ngOnInit() {
+    console.log('AppComponent initialized 1');
+    console.log(this.conditionalCount());
+    this.count.set(this.count() + 1);
+    this.showCount.set(true);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    this.count.set(this.count() + 1);
+    console.log(this.conditionalCount());
   }
 
   changeLang() {
@@ -51,5 +90,6 @@ export class AppComponent {
 
   toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
+    this.count.set(this.count() + 1);
   }
 }

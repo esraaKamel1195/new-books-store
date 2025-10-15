@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { Product } from './interface';
 import { MOCK_PRODUCTS } from './data';
 import { TableModule } from 'primeng/table';
+import { CardComponent } from '@shared/components/data-view-components/card/card.component';
 
 @Component({
   selector: 'app-data-view',
@@ -22,13 +23,14 @@ import { TableModule } from 'primeng/table';
     Rating,
     ButtonModule,
     SelectButton,
-    TableModule
+    TableModule,
+    CardComponent,
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss',
 })
 export class DataViewComponent {
-  layout: "list" | "grid" = 'grid';
+  layout: 'list' | 'grid' = 'grid';
 
   products = signal<Product[]>([]);
 
@@ -44,7 +46,6 @@ export class DataViewComponent {
   }
 
   getSeverity(product: Product) {
-    
     switch (product.inventoryStatus) {
       case 'INSTOCK':
         return 'success';

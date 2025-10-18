@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { environment } from '@env/environment.development';
 import { clearUser, setUser } from '@features/state/auth.store';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { clearUser, setUser } from '@features/state/auth.store';
 })
 export class AuthService {
   private readonly http: HttpClient = inject(HttpClient);
-  apiUrl = 'https://api.example.com/auth'; // Replace with your backend API URL
+  apiUrl = environment.backendUrl; // Replace with your backend API URL
 
   constructor() {}
 

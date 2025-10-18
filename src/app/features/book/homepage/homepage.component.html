@@ -1,0 +1,42 @@
+<section>
+  <div class="banner shadow mb-5">
+    <div class="row py-2 container">
+      <div class="col-md-7 align-content-center ps-4">
+        <h1 class="py-3">Unleash your <b>Creativity</b></h1>
+        <p>With reading some stories and write your own story chapter</p>
+      </div>
+      <div class="col-md-5 align-content-center">
+        <img src="images/book2.png" class="img-fluid" alt="books" />
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <app-category-carousel></app-category-carousel>
+  </div>
+
+  <div class="container my-2">
+    <div class="text-center cover-img">
+      <img src="images/ads2.jpg" class="img-fluid" alt="img-item" />
+    </div>
+  </div>
+
+  <div class="container">
+    <app-book-collection
+      [title]="'Latest Stories'"
+      [currentPage]="'home'"
+      [routingItem]="'latest-stories'"
+    ></app-book-collection>
+    <app-book-collection
+      [title]="'Popular Stories'"
+      [currentPage]="'home'"
+      [routingItem]="'popular-stories'"
+    ></app-book-collection>
+    <app-book-collection
+      *ngIf="isAuthenticated"
+      [title]="'Stories Based on Selected Categories'"
+      [currentPage]="'home'"
+      [routingItem]="'spicial-stories'"
+    ></app-book-collection>
+  </div>
+</section>

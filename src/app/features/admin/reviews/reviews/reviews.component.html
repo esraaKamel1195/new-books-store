@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="title-part">
+    <h5 class="title">Reviews</h5>
+  </div>
+  <div class="mat-elevation-z8">
+    <!-- <table mat-table [dataSource]="dataSource"> -->
+    <table mat-table>
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="btn bg-warning mx-3" (click)="edit(element.id)">
+            Edit
+          </button>
+          <button class="btn bg-danger" (click)="deleteReview(element.id)">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews">
+          <!-- <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.gender }}</td> -->
+          <td>
+            <button class="btn bg-warning mx-3" (click)="edit(review.id)">
+              Edit
+            </button>
+            <button class="btn bg-danger" (click)="deleteReview(review.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator> -->
+  </div>
+</div>

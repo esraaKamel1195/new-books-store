@@ -1,0 +1,63 @@
+<div class="container my-2 mx-5">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h3 class="title">{{ title }}</h3>
+    </div>
+    <div>
+      @if(!categoryId) {
+      <a routerLink="stories/{{ routingItem }}">Show All</a>
+      } @if(categoryId) {
+      <a *ngIf="categoryId" routerLink="stories-by-category/{{ categoryId }}"
+        >Show All</a
+      >
+      }
+    </div>
+  </div>
+
+  <div class="row p-1">
+    <div class="book-list-container">
+      @for(story of visibleStories; track $index; let i = $index) {
+      <mat-card
+        class="col-md-3 col-sm-6 pb-3 my-2"
+        class="book-card"
+        (click)="showDetails(story.id)"
+        (keyup)="onKeyUp($event)"
+      >
+        @if(story.cover_image) {
+        <img
+          mat-card-image
+          [src]="story.cover_image"
+          alt="{{ story.title }}"
+        />
+        } @if(story.advertisement_image) {
+        <img
+          mat-card-image
+          [src]="story.advertisement_image"
+          alt="{{ story.title }}"
+        />
+        }
+        <mat-card-header>
+          <mat-card-title>{{ story.title }}</mat-card-title>
+          <mat-card-subtitle>{{
+            story.category?.category_name
+          }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="story.description">
+          <p>{{ story.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="showDetails(story.id)">
+            learn More
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      }
+    </div>
+
+    <div class="text-center">
+      <button class="btn" routerLink="stories/{{ routingItem }}">
+        Load More
+      </button>
+    </div>
+  </div>
+</div>

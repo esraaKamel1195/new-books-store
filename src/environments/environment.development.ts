@@ -1,6 +1,6 @@
 export const environment = {
-  "backendUrl": "https://api.production.example.com",
-  "enableDebug": false,
+  "backendUrl": "https://whitesmoke-coyote-648419.hostingersite.com/api",
+  "enableDebug": true,
   "featureFlags": {
     "newFeature": true
   }

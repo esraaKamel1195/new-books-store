@@ -1,18 +1,4 @@
-<!-- <div>{{ "app.hello" | translate }}</div>
-<div class="card flex justify-center">
-  <p-floatlabel>
-    <input id="username" pInputText [(ngModel)]="value" />
-    <label for="username">Username</label>
-  </p-floatlabel>
-</div>
-
-<a href="/">hyper text</a>
-<br>
-<br>
-<p-button label="Change Lang" class="my-custom-button" (onClick)="changeLang()"/>
-<br>
-<br>
-<p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()"/> -->
-
-
-<app-data-view></app-data-view>
+<!-- <app-data-view></app-data-view> -->
+<app-header id="header"></app-header>
+<router-outlet />
+<app-footer id="footer"></app-footer>

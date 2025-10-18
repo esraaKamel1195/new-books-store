@@ -10,8 +10,6 @@ export class AuthService {
   private readonly http: HttpClient = inject(HttpClient);
   apiUrl = environment.backendUrl; // Replace with your backend API URL
 
-  constructor() {}
-
   /*login(username: string, password: string) {
     // Implement login logic here, e.g., call to backend API
     // For demonstration, we'll just return a mock user

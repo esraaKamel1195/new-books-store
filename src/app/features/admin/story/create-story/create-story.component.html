@@ -1,0 +1,207 @@
+<!-- <section class="story my-5 m-auto shadow bg-white">
+  <h5 class="title">Create new story</h5>
+
+  <div class="container">
+    <form class="story-form">
+      <div class="form-group story-form row">
+        <div class="form-field col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Story title" />
+          </mat-form-field>
+        </div>
+        <div class="form-field col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Main Character</mat-label>
+            <mat-chip-grid
+              #characterChipGrid
+              aria-label="Enter reactive form characters"
+            >
+              @for (character of reactiveCharacter(); track character) {
+              <mat-chip-row (removed)="removeReactiveCharacter(character)">
+                {{ character }}
+                <button
+                  matChipRemove
+                  type="button"
+                  aria-label="'remove reactive form' + character"
+                >
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+              }
+            </mat-chip-grid>
+
+            <input
+              placeholder="New character..."
+              [matChipInputFor]="characterChipGrid"
+              (matChipInputTokenEnd)="addReactiveCharacter($event)"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-field col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea
+              matInput
+              id="description"
+              name="description"
+              placeholder="Description"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <div class="form-field col-12">
+          <mat-form-field class="example-form-field" appearance="outline">
+            <mat-label> Tags </mat-label>
+            <mat-chip-grid #tagChipGrid aria-label="Enter reactive form tags">
+              @for (tag of reactiveKeywords(); track tag) {
+              <mat-chip-row (removed)="removeReactiveKeyword(tag)">
+                {{ tag }}
+                <button
+                  type="button"
+                  matChipRemove
+                  aria-label="'remove reactive form' + tag"
+                >
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+              }
+            </mat-chip-grid>
+            <input
+              placeholder="New tag..."
+              [matChipInputFor]="tagChipGrid"
+              (matChipInputTokenEnd)="addReactiveKeyword($event)"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-field col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Language</mat-label>
+            <mat-select formControlName="language">
+              <mat-option value="Arabic">Arabic</mat-option>
+              <mat-option value="English">English</mat-option>
+              <mat-option value="French">French</mat-option>
+              <mat-option value="Spanish">Spanish</mat-option>
+              <mat-option value="German">German</mat-option>
+              <mat-option value="Italian">Italian</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-field col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Copyright</mat-label>
+            <mat-select>
+              <mat-option value="all-right-reserved"
+                >all right reserved</mat-option
+              >
+              <mat-option value="cc">Creative Commons Attribution</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-field col-md-6">
+          <mat-radio-group formControlName="mature" class="form-field ms-2">
+            <label>Mature</label>
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no">No</mat-radio-button>
+          </mat-radio-group>
+          @if(form.get('mature')?.hasError('required')) {
+          <mat-error> Mature is required </mat-error>
+          }
+        </div>
+        <div class="form-field col-md-6">
+          <label for="image" style="display: inline" class="ms-1"
+            >Cover Image</label
+          >
+          <input
+            type="file"
+            name="image"
+            id="image"
+            class="ms-1"
+            style="width: 60%; display: inline"
+          />
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn" routerLink="/chapter/create">
+          Create Story
+        </button>
+      </div>
+    </form>
+  </div>
+</section> -->
+
+<!--
+<section class="story my-5 m-auto shadow bg-white">
+  <h5 class="title">Update story</h5>
+
+  <div class="container">
+    <form>
+      <div class="form-group story-form row">
+        <div class="form-field col-md-6">
+          <input class="input-text" type="text" id="title" name="title" />
+          <label class="label">Title</label>
+        </div>
+        <div class="form-field col-md-6">
+          <input
+            class="input-text"
+            type="text"
+            id="characters"
+            name="characters"
+          />
+          <label class="label">Main Characters</label>
+        </div>
+        <div class="form-field col-md-6">
+          <textarea
+            class="input-text"
+            id="description"
+            name="description"
+          ></textarea>
+          <label for="description" class="label">Description</label>
+        </div>
+        <div class="form-field col-md-6">
+          <input class="input-text" type="text" id="tags" name="tags" />
+          <label class="label">Tags</label>
+        </div>
+        <div class="form-field col-md-6">
+          <label for="label" class="language">Language</label>
+          <select class="form-control my-2" id="language" name="language">
+            <option value="" disabled selected>Select language</option>
+            <option value="Arabic">Arabic</option>
+            <option value="English">English</option>
+            <option value="French">French</option>
+            <option value="Spanish">Spanish</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+          </select>
+        </div>
+        <div class="form-field col-md-6">
+          <label for="label" class="language">Copyright</label>
+          <select class="form-control my-2" id="language" name="language">
+            <option value="" disabled selected>--select--</option>
+            <option value="all-right-reserved">All Right Reserved</option>
+            <option value="cc">Creative Commons Attribution</option>
+          </select>
+        </div>
+        <div class="form-field col-md-6">
+          <label for="mature" class="d-block mature">Mature</label>
+          <div class="row pt-1 ps-2">
+            <div class="col-md-6">
+              <input type="radio" name="mature" id="mature" />
+              <label for="yes" class="ps-2">Yes</label>
+            </div>
+            <div class="col-md-6">
+              <input type="radio" name="mature" id="adult" placeholder="mature"/>
+              <label for="no" class="ps-2">No</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-field col-md-6 enum">
+          <label for="image" class="image pb-2">Cover Image</label>
+          <input type="file" name="image" id="image" class="ms-2" />
+        </div>
+      </div>
+      <div class="text-center">
+        <input type="submit" class="btn" value="Update Story" />
+      </div>
+    </form>
+  </div>
+</section> -->

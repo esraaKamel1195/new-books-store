@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="title-part">
+    <h5 class="title">Stories</h5>
+  </div>
+  <div class="my-5">
+    <table class="table m-auto">
+      <thead class="text-center">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Message</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for ( contact of contacts; track $index) {
+        <tr>
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phone }}</td>
+          <td>
+            {{ contact.message }}
+          </td>
+          <td>
+            @if (contact.id) {
+            <button class="btn btn-danger" (click)="viewMessage(contact.id)">
+              View
+            </button>
+            } @if (contact.id) {
+            <button class="btn btn-danger" (click)="deleteMessage(contact.id)">
+              Delete
+            </button>
+            }
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

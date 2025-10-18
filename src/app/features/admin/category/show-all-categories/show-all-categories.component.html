@@ -1,0 +1,46 @@
+<section class="container m-auto">
+  <div class="category">
+    <div class="title-part">
+      <h5 class="title">Categories</h5>
+      <button type="button" class="btn" (click)="addCategory()">
+        Add Category
+      </button>
+    </div>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Category Name</th>
+          <th scope="col">Tags</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.category_name }}</td>
+          <td>
+            <button
+              class="btn bg-warning mx-3"
+              (click)="viewTags(category.cat_id)"
+            >
+              Tags
+            </button>
+          </td>
+          <td>
+            <button
+              class="btn bg-warning mx-3"
+              (click)="editCategory(category.cat_id)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn bg-danger"
+              (click)="deleteCategory(category.cat_id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

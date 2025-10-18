@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="title-part">
+    <h5 class="title">Stories</h5>
+  </div>
+  <div class="mat-elevation-z8">
+    <!-- <table mat-table [dataSource]="dataSource"> -->
+      <!-- Position Column -->
+      <!-- <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container> -->
+
+      <!-- Name Column -->
+      <!-- <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container> -->
+
+      <!-- Weight Column -->
+      <!-- <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef>Weight</th>
+        <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+      </ng-container> -->
+
+      <!-- Symbol Column -->
+      <!-- <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef>Symbol</th>
+        <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+      </ng-container> -->
+
+      <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"> -->
+        <!-- <td>
+          <button
+            class="btn bg-warning mx-3"
+            (click)="edit(category.cat_id)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn bg-danger"
+            (click)="deleteCategory(category.cat_id)"
+          >
+            Delete
+          </button>
+        </td> -->
+      <!-- </tr>
+    </table> -->
+
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Category</th>
+          <th scope="col">Status</th>
+          <th scope="col">Content type</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let story of stories">
+          <td>{{ story.title }}</td>
+          <td>{{ story.category }}</td>
+          <td>{{ story.status }}</td>
+          <td>{{ story.content_type }}</td>
+
+          <td>
+            <button class="btn bg-warning mx-3" (click)="edit(story.id)">
+              Edit
+            </button>
+            <button class="btn bg-danger" (click)="deleteStory(story.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>

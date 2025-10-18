@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="d-flex justify-content-between mb-2">
+    <div>
+      <h3 class="title">Browse By Story Category</h3>
+    </div>
+    <div>
+      <button type="button" class="btn" (click)="prev()">
+        <p class="sr-only">prev</p>
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <button type="button" class="btn" (click)="next()">
+        <p class="sr-only">next</p>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+  <div class="d-flex justify-content-evenly my-2">
+    <div
+      class="card me-2"
+      *ngFor="let category of visibleCategories; let i = index"
+      [ngClass]="{ active: i === currentIndex }"
+      (click)="goToCategoryPage(category.cat_id)"
+      (keydown.enter)="goToCategoryPage(category.cat_id)"
+    >
+      <div class="card-title">
+        <img
+          src="images/book-and-pen.png"
+          alt="book-and-pen"
+        />
+        <span>{{ category?.category_name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tags" *ngIf="tags_Show">
+    <div class="d-flex justify-content-between mt-4 mb-2">
+      <div>
+        <h3 class="title">Browse By Story Tags</h3>
+      </div>
+      <div>
+        <button type="button" class="btn" (click)="prev()">
+          <p class="sr-only">prev</p>
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button type="button" class="btn" (click)="next()">
+          <p class="sr-only">next</p>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-evenly my-2">
+      <div
+        class="card me-2"
+        *ngFor="let tag of tags; let i = index"
+        [ngClass]="{ active: i === currentIndex }"
+        (click)="getStoriesByTag(tag.id)"
+        (keydown.enter)="getStoriesByTag(tag.id)"
+      >
+        <div class="card-title">
+          <img
+            src="images/book-and-pen.png"
+            alt="book-and-pen"
+          />
+          <span>{{ tag?.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

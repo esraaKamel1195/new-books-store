@@ -1,0 +1,30 @@
+<div class="category my-5 m-auto shadow bg-white">
+  <h5 class="title mb-3">Create New Tag</h5>
+  <div class="container">
+    <form [formGroup]="tagForm" (ngSubmit)="onSubmit()" class="category-form">
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Tag Name</mat-label>
+          <input matInput formControlName="tag_name" placeholder="Tag name" />
+        </mat-form-field>
+        @if(tagForm.get('tag_name')?.touched &&
+        tagForm.get('tag_name')?.invalid) {
+        <mat-error>
+          Tag name is required and must be at least 3 characters.
+        </mat-error>
+        }
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn"
+          value="Create Tag"
+          mat-raised-button
+          [disabled]="tagForm.invalid"
+        >
+          Create tag
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

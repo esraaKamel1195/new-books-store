@@ -9,7 +9,7 @@ import { CategoryService } from '@core/services/category.service';
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
   categories: any[] = [];

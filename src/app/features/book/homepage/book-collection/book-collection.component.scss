@@ -1,0 +1,41 @@
+.container {
+  padding: 50px 0px;
+}
+
+h3.title {
+  color: #fc7b1d;
+}
+
+.btn {
+  background-color: #fc7b1d;
+  color: #ffffff;
+}
+
+.book-card {
+  cursor: pointer;
+  width: 190px;
+}
+
+.book-card img {
+  object-fit: cover;
+  margin: 0px 0 0px;
+  height: 160px;
+  width: 100%;
+}
+
+.book-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: start;
+  padding: 16px;
+  min-width: 100%;
+}
+
+mat-card-content {
+  min-width: 170px;
+  max-width: 170px;
+  height: 60px;
+  max-height: 100px;
+  overflow: hidden;
+}

@@ -1,0 +1,100 @@
+.story {
+  max-width: 750px;
+  margin: 50px auto;
+  position: relative;
+  box-shadow: 0 10px 30px 0px hsla(0, 0%, 0%, 0.486);
+  padding: 30px;
+}
+
+.story .title {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 1.5em;
+  line-height: 48px;
+  padding-bottom: 20px;
+  color: #f87f27;
+  background: linear-gradient(to right, #f87f27, #262628);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.story-form .form-field {
+  position: relative;
+  margin: 5px 0;
+}
+
+.story-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #26262893;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.story-form .input-text:focus {
+  outline: none;
+}
+
+.story-form .input-text:focus + label,
+.story-form .input-text.not-empty + .label {
+  transform: translateY(-24px);
+}
+
+.story-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #262628;
+  cursor: text;
+  text-transform: capitalize;
+  transition: 0.2s ease-in-out;
+}
+
+.btn {
+  background-color: #f87f27;
+  color: #262628;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #262628;
+}
+
+.btn:hover {
+  background-color: #262628;
+  color: #fff;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.story-form mat-label {
+  color: #262628;
+  font-size: 18px;
+  font-weight: 500;
+  /* margin-bottom: 10px;
+    padding-bottom: 5px; */
+}
+
+.story-form mat-form-field + mat-form-field {
+  margin-left: 8px;
+  color: #262628 !important;
+  /* height: 50px; */
+  background-color: #fff;
+}
+
+mat-form-field {
+  width: 100%;
+  border-color: #262628;
+}
+
+textarea {
+  height: 30px
+}

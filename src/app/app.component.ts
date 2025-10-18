@@ -7,10 +7,12 @@ import {
   signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+
 // translate
 import {
   TranslateService,
@@ -18,6 +20,8 @@ import {
   TranslateDirective,
 } from '@ngx-translate/core';
 import { DataViewComponent } from '@shared/components/data-view-components/data-view/data-view.component';
+import { HeaderComponent } from '@shared/layout/header/header.component';
+import { FooterComponent } from "@shared/layout/footer/footer.component";
 
 @Component({
   selector: 'app-root',
@@ -30,7 +34,10 @@ import { DataViewComponent } from '@shared/components/data-view-components/data-
     TranslatePipe,
     TranslateDirective,
     DataViewComponent,
-  ],
+    RouterModule,
+    HeaderComponent,
+    FooterComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -54,8 +61,6 @@ export class AppComponent implements OnInit {
     this.translate.setFallbackLang('en');
     this.translate.use('en');
 
-    console.log('AppComponent initialized 2');
-
     effect(() => {
       console.log('AppComponent initialized 3 from effect');
       console.log(`The current count is: ${this.count()}`);
@@ -63,8 +68,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('AppComponent initialized 1');
-    console.log(this.conditionalCount());
+    //console.log('AppComponent initialized 1');
+    //console.log(this.conditionalCount());
     this.count.set(this.count() + 1);
     this.showCount.set(true);
     this.count.set(this.count() + 1);
@@ -75,7 +80,7 @@ export class AppComponent implements OnInit {
     this.count.set(this.count() + 1);
     this.count.set(this.count() + 1);
     this.count.set(this.count() + 1);
-    console.log(this.conditionalCount());
+    //console.log(this.conditionalCount());
   }
 
   changeLang() {

@@ -1,0 +1,33 @@
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #f87f27 !important;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+}
+
+.title-logo {
+  padding-top: 7px;
+  padding-inline-start: 5px;
+}
+
+.active {
+  color: #f87f27 !important;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropdown {
+  border: transparent;
+}
+
+ul {
+  width: 600px;
+}
+
+.nav-link-auth {
+  color: #4d8cdb;
+}

@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Toolbar, ToolbarModule } from 'primeng/toolbar';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '@core/services/auth/auth.service';
 import { CategoryService } from '@core/services/category.service';
+import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, ToolbarModule, Toolbar, ButtonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -37,12 +39,13 @@ export class HeaderComponent implements OnInit {
       next: (res) => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-      }, error: (error) => {
+      },
+      error: (error) => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         console.log('error', error.error.message);
         this.router.navigateByUrl('/auth/login');
-      }
+      },
     });
   }
 }

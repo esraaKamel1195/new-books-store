@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '@env/environment.development';
+import { environment } from '@environments/environment.development';
 import { clearUser, setUser } from '@features/state/auth.store';
 
 @Injectable({
@@ -8,30 +8,7 @@ import { clearUser, setUser } from '@features/state/auth.store';
 })
 export class AuthService {
   private readonly http: HttpClient = inject(HttpClient);
-  apiUrl = environment.backendUrl; // Replace with your backend API URL
-
-  /*login(username: string, password: string) {
-    // Implement login logic here, e.g., call to backend API
-    // For demonstration, we'll just return a mock user
-    if (username === 'admin' && password === 'admin') {
-      return {
-        id: '1',
-        username: 'admin',
-        email: '',
-        role: 'admin',
-        token: 'mock-jwt-token'
-      };
-    } else if (username === 'user' && password === 'user') {
-      return {
-        id: '2',
-        username: 'user',
-        email: 'user@example.com',
-        role: 'user',
-        token: 'mock-jwt-token'
-      };
-    }
-    return null;
-  }*/
+  apiUrl = environment.backendUrl;
 
   login(email: string, password: string) {
     return this.http
